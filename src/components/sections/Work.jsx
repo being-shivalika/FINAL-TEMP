@@ -25,18 +25,19 @@ export default function Work() {
           {works.map((work, i) => (
             <motion.div 
               key={i} 
-              className={`group cursor-pointer ${i % 2 !== 0 ? 'md:mt-32' : 'md:mb-32'}`}
+              tabIndex={0}
+              className={`group cursor-pointer focus:outline-none ${i % 2 !== 0 ? 'md:mt-32' : 'md:mb-32'}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: i * 0.1 }}
             >
-              <div className="relative aspect-[4/3] w-full brutalist-container overflow-hidden p-2 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-brutalist-hover transition-all duration-200">
+              <div className="relative aspect-[4/3] w-full brutalist-container overflow-hidden p-2 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:shadow-brutalist-hover group-active:-translate-x-1 group-active:-translate-y-1 group-active:shadow-brutalist-hover group-focus:-translate-x-1 group-focus:-translate-y-1 group-focus:shadow-brutalist-hover transition-all duration-200">
                 <div className="w-full h-full border-2 border-structural-dark overflow-hidden relative">
                   <img 
                     src={work.img} 
                     alt={work.title} 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-active:grayscale-0 group-focus:grayscale-0 transition-all duration-500 group-hover:scale-105 group-active:scale-105 group-focus:scale-105"
                   />
                 </div>
               </div>

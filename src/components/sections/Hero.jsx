@@ -1,15 +1,17 @@
-import React from 'react';
-import Button from '../ui/Button';
-import CropMarks from '../ui/CropMarks';
-import { motion } from 'framer-motion';
+import React from "react";
+import Button from "../ui/Button";
+import CropMarks from "../ui/CropMarks";
+import { motion } from "framer-motion"; // eslint-disable-line no-unused-vars
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen relative flex items-center pt-24 pb-16 overflow-hidden">
+    <section
+      id="home"
+      className="min-h-screen relative flex items-center pt-10 pb-16 overflow-hidden"
+    >
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-
         {/* Left Content */}
         <motion.div
           className="lg:col-span-7 flex flex-col items-start gap-8"
@@ -17,21 +19,31 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="flex flex-col gap-4">
-            <span className="font-heading font-medium tracking-widest text-sm uppercase text-structural-dark/70">Raw Curator. Visual Editorial.</span>
+          <div className="flex flex-col gap-3">
+            <span className="font-heading font-small tracking-widest text-sm uppercase text-structural-dark/70">
+              Raw Curator. Visual Editorial.
+            </span>
             <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-heading font-bold leading-[1.05] tracking-tight">
-              Beyond  <br />
-              <span className="text-brutalist-border italic font-normal">the</span> Feed.
+              Beyond <br />
+              <span className="text-brutalist-border italic font-normal">
+                the
+              </span>{" "}
+              Feed.
             </h1>
           </div>
 
           <p className="text-lg md:text-xl max-w-lg leading-relaxed font-body">
-            I build uncompromising visual identities and structural storytelling for brands that want to stand out, not blend in.
+            I build uncompromising visual identities and structural storytelling
+            for brands that want to stand out, not blend in.
           </p>
 
           <div className="flex flex-wrap gap-4 mt-4">
-            <Button variant="primary" href="#work">View My Work</Button>
-            <Button variant="secondary" href="#contact">Get Your Portfolio</Button>
+            <Button variant="primary" href="#work">
+              View My Work
+            </Button>
+            <Button variant="secondary" href="#contact">
+              Get Your Portfolio
+            </Button>
           </div>
         </motion.div>
 
@@ -42,14 +54,14 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <div className="relative aspect-[4/5] w-full max-w-md mx-auto brutalist-container bg-surface-container overflow-visible p-2 group">
+          <div tabIndex="0" className="relative aspect-4/5 w-full max-w-md mx-auto brutalist-container bg-surface-container overflow-visible p-2 group focus:outline-none">
             <CropMarks position="all" />
             <div className="w-full h-full bg-structural-darker relative overflow-hidden border-2 border-structural-dark">
               {/* Image Placeholder */}
               <img
                 src="https://images.unsplash.com/photo-1544365558-35aa4afcf11f?auto=format&fit=crop&q=80"
                 alt="Creator"
-                className="w-full h-full object-cover mix-blend-luminosity opacity-80 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover mix-blend-luminosity opacity-80 group-hover:opacity-100 group-active:opacity-100 group-focus:opacity-100 transition-opacity duration-500 group-hover:scale-105 group-active:scale-105 group-focus:scale-105"
               />
             </div>
 
@@ -62,7 +74,6 @@ export default function Hero() {
             </div>
           </div>
         </motion.div>
-
       </div>
     </section>
   );
