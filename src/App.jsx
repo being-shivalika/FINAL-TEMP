@@ -21,7 +21,7 @@ function App() {
 
       <footer className="py-8 border-t-2 border-structural-dark bg-structural-darker text-surface text-center font-heading text-sm uppercase tracking-widest relative">
         <div className="absolute top-0 left-0 w-full h-0.5 bg-primary-neon opacity-50"></div>
-        © {new Date().getFullYear()} Creator Brand. Brutalist-Light Editorial.
+        © {new Date().getFullYear()} Creator Shivalika Mehra. ©{new Date().getFullYear()}
       </footer>
     </div>
   );

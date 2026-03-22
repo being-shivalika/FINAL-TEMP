@@ -40,19 +40,19 @@ export default function Contact() {
               href="mailto:hello@example.com"
               className="hover:text-primary-neon hover:bg-structural-dark px-2 -ml-2 transition-colors w-fit"
             >
-              HELLO@EXAMPLE.COM
+              MEHRASHIVALIKA8@GMAIL.COM
             </a>
             <a
               href="#"
               className="hover:text-primary-neon hover:bg-structural-dark px-2 -ml-2 transition-colors w-fit"
             >
-              TWITTER / X
+              TWITTER / X  @SHIVALIKA271
             </a>
             <a
               href="#"
               className="hover:text-primary-neon hover:bg-structural-dark px-2 -ml-2 transition-colors w-fit"
             >
-              INSTAGRAM
+              INSTAGRAM  @shiv_isthisu_
             </a>
           </div>
         </motion.div>
