@@ -8,12 +8,12 @@ export default function Services() {
     {
       title: 'Brand Identity',
       desc: 'Building bold, uncompromising design systems that stand out in a sea of uniformity.',
-      price: 'From $5k'
+      price: 'From 5k'
     },
     {
       title: 'Digital Experience',
       desc: 'High-conversion, structurally sound websites using React and modern architectures.',
-      price: 'From $8k'
+      price: 'From 8k'
     },
     {
       title: 'Content Strategy',
@@ -25,7 +25,7 @@ export default function Services() {
   return (
     <section id="expertise" className="py-24 border-t-2 border-structural-dark bg-surface">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="flex justify-between items-end mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
