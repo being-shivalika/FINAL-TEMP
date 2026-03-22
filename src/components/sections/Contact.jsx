@@ -1,18 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import emailjs from '@emailjs/browser';
 import Button from "../ui/Button";
 
 export default function Contact() {
   const [status, setStatus] = useState("idle");
+  const formRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus("success");
-    e.target.reset(); // clear the form
+    setStatus("sending");
 
-    setTimeout(() => {
-      setStatus("idle");
-    }, 4000);
+    // PLACEHOLDER: Please replace these with your actual EmailJS credentials
+    const serviceId = 'service_udpwevg';
+    const templateId = 'template_dd9soia';
+    const publicKey = 'u9dLFm3FnBRm433at';
+
+    emailjs.sendForm(serviceId, templateId, formRef.current, {
+      publicKey: publicKey,
+    })
+      .then(
+        () => {
+          setStatus("success");
+          e.target.reset(); // clear the form
+          setTimeout(() => {
+            setStatus("idle");
+          }, 4000);
+        },
+        (error) => {
+          console.error('FAILED...', error.text);
+          alert('Failed to send message. Please ensure EmailJS credentials are set.');
+          setStatus("idle");
+        },
+      );
   };
 
   return (
@@ -65,6 +85,7 @@ export default function Contact() {
           transition={{ delay: 0.2 }}
         >
           <form
+            ref={formRef}
             className="flex flex-col gap-6 relative"
             onSubmit={handleSubmit}
           >
@@ -78,6 +99,8 @@ export default function Contact() {
               <input
                 type="text"
                 id="name"
+                name="user_name"
+                required
                 className="w-full bg-surface border-2 border-structural-dark p-4 font-body outline-none focus:border-primary-neon focus:ring-2 focus:ring-structural-dark transition-all rounded-none"
                 placeholder="John Doe"
               />
@@ -93,6 +116,8 @@ export default function Contact() {
               <input
                 type="email"
                 id="email"
+                name="user_email"
+                required
                 className="w-full bg-surface border-2 border-structural-dark p-4 font-body outline-none focus:border-primary-neon focus:ring-2 focus:ring-structural-dark transition-all rounded-none"
                 placeholder="john@example.com"
               />
@@ -107,6 +132,8 @@ export default function Contact() {
               </label>
               <textarea
                 id="message"
+                name="message"
+                required
                 rows="4"
                 className="w-full bg-surface border-2 border-structural-dark p-4 font-body outline-none focus:border-primary-neon focus:ring-2 focus:ring-structural-dark transition-all resize-none rounded-none"
                 placeholder="Tell me about your project..."
@@ -116,7 +143,7 @@ export default function Contact() {
             <Button
               variant={status === "success" ? "primary" : "dark"}
               className="w-full mt-4 group"
-              disabled={status === "success"}
+              disabled={status === "success" || status === "sending"}
             >
               <span
                 className={
@@ -125,7 +152,7 @@ export default function Contact() {
                     : "group-hover:text-primary-neon transition-colors"
                 }
               >
-                {status === "success" ? "Message Delivered" : "Send Message"}
+                {status === "sending" ? "Sending..." : status === "success" ? "Message Delivered" : "Send Message"}
               </span>
             </Button>
 
