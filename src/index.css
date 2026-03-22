@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #f7f9fd;
+  --color-surface-container: #eceef2;
+  --color-primary-neon: #bff365;
+  --color-structural-dark: #1e2f00;
+  --color-structural-darker: #272b2d;
+  --color-brutalist-border: #75777d;
+  
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  
+  --shadow-brutalist: 4px 4px 0px 0px var(--color-structural-dark);
+  --shadow-brutalist-hover: 6px 6px 0px 0px var(--color-structural-dark);
+}
+
+@layer base {
+  :root {
+    font-family: var(--font-body);
+    background-color: var(--color-surface);
+    color: var(--color-structural-dark);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.05em;
+  }
+}
+
+.brutalist-container {
+  border: 2px solid var(--color-brutalist-border);
+  background-color: var(--color-surface-container);
+  box-shadow: var(--shadow-brutalist);
+}
+
+.brutalist-button {
+  border: 2px solid var(--color-brutalist-border);
+  box-shadow: var(--shadow-brutalist);
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+
+.brutalist-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-brutalist-hover);
+}
+
+.grid-bg {
+  background-image: 
+    linear-gradient(to right, #eceef2 1px, transparent 1px),
+    linear-gradient(to bottom, #eceef2 1px, transparent 1px);
+  background-size: 40px 40px;
+}
